@@ -52,8 +52,7 @@ public class App {
                         String register = tokens.get(1);
                         Integer value = Integer.parseInt(tokens.get(2));    
                         Instruction instruction = InstructionRegistry.getAddInstruction(register, value, microProcessor);
-                        instruction.execute();
-                        System.out.println(microProcessor.getRegister(register).getValue());
+                        microProcessor.executeInstruction(instruction);
                     }
                     break;
 
@@ -62,7 +61,7 @@ public class App {
                         String register1 = tokens.get(1);
                         String register2 = tokens.get(2);
                         Instruction instruction = InstructionRegistry.getAdrInstruction(register1,register2, microProcessor);
-                        instruction.execute();
+                        microProcessor.executeInstruction(instruction);
                     }
                     break;
 
@@ -70,7 +69,7 @@ public class App {
                     {
                         String register = tokens.get(1);
                         Instruction instruction = InstructionRegistry.getDcrInstruction(register, microProcessor);
-                        instruction.execute();
+                        microProcessor.executeInstruction(instruction);
                     }
                     break;
 
@@ -78,7 +77,7 @@ public class App {
                     {
                         String register = tokens.get(1);
                         Instruction instruction = InstructionRegistry.getInrInstruction(register, microProcessor);
-                        instruction.execute();
+                        microProcessor.executeInstruction(instruction);
                     }
                     break;
 
@@ -87,14 +86,14 @@ public class App {
                         String register1 = tokens.get(1);
                         String register2 = tokens.get(2);
                         Instruction instruction = InstructionRegistry.getMovInstruction(register1,register2, microProcessor);
-                        instruction.execute();
+                        microProcessor.executeInstruction(instruction);
                     }
                     break;
 
                     case "RST":
                     {
                         Instruction instruction = InstructionRegistry.getRstInstruction(microProcessor);
-                        instruction.execute();
+                        microProcessor.executeInstruction(instruction);
                     }
                     break;
 
@@ -103,8 +102,7 @@ public class App {
                         String register = tokens.get(1);
                         Integer value = Integer.parseInt(tokens.get(2)); 
                         Instruction instruction = InstructionRegistry.getSetInstruction(register,value, microProcessor);
-                        instruction.execute();
-                        System.out.println(microProcessor.getRegister(register).getValue());
+                        microProcessor.executeInstruction(instruction);
                     }
                     break;
 
